@@ -67,7 +67,10 @@ class ngram:
         self.addUnigramCounts(sentence[i+self.n-1])
       #get the last prevGram
       self.addPrevGram(tuple([sentence[len(sentence)-self.n+1+j] for j in range(self.n-1)]))
-    self.V = float(len(self.unigramCounts.keys()))
+    if self.n == 1:
+      self.V = float(len(self.unigramCounts.keys()))
+    else:
+      self.V = float(len(self.prevGrams.keys()))
     self.totalNumberOfWords = float(sum([self.unigramCounts[word] for word in self.unigramCounts.keys()]))
   
   #get the probability of an n-gram
