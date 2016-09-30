@@ -127,7 +127,7 @@ class HMM:
     sys.stdout.write("  ")
     outputSize = 2
     for sentence in D:
-      output = "{0:.2f}%".format((float(numSentences)/totalSentences)*100.0)
+      output = "{:.2%}".format((float(numSentences)/totalSentences))
       backspaces = ""
       for j in range(outputSize):
         backspaces = backspaces + "\b"
